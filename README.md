@@ -55,7 +55,7 @@ Create `.env.sign.yaml` and `.env.sign.yaml` and `npm run deploy`
 
 # Config
 
-## .env.sign.yaml
+## .env.send.yaml
 ```yaml
 
 # S3 "Folder" to keep files in
