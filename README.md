@@ -51,7 +51,7 @@ look at [example.php](examples/sign.usage.php)
 
 Create `.env.sign.yaml` and `.env.sign.yaml` and `npm run deploy`
 
-* you might want to change region and function name in [package.json](package.json#L9)
+* you might want to change region and function name in [package.json](package.json)
 
 # Config
 
