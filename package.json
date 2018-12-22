@@ -19,7 +19,7 @@
   "dependencies": {
     "aws-sdk": "^2.377.0",
     "infer-values": "^1.0.1",
-    "json-cipher-url": "0.0.2",
+    "json-cipher-url": "0.0.5",
     "node-fetch": "^2.3.0",
     "sharp": "^0.21.1"
   }
