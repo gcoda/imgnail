@@ -4,7 +4,7 @@ const s3 = require('../lib/s3')
 const fetch = require('node-fetch')
 const sharp = require('sharp')
 
-const { parse } = require('json-cipher-url')(process.env.NAIL_SECRET)
+const { parse, hash } = require('json-cipher-url')(process.env.NAIL_SECRET)
 
 const redirect = process.env.REDIRECT_PREFIX
 const keyPrefix = process.env.KEY_PREFIX
@@ -61,7 +61,11 @@ module.exports = async (req, res) => {
     console.log('PARSED', { parsedParams })
     if (parsedParams) {
       const params = { ...defaultParams, ...parsedParams }
-      const Key = keyPrefix + encoded
+
+      const Key = process.env.NAIL_PURGEABLE
+        ? `${keyPrefix}${hash(parsedParams.url)}/${encoded}`
+        : keyPrefix + encoded
+      
       const s3Obj = sendExisting
         ? s3.getObject({ Bucket, Key })
         : s3.headObject({ Bucket, Key })
