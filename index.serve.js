@@ -8,13 +8,14 @@ ${signEnv}
 `.replace(/\: /g, '=')
 writeFileSync('./.env', buf)
 require('dotenv').config()
-
 const express = require('express')
 
 const sign = require('./functions/sign')
 const send = require('./functions/send')
+const purge = require('./functions/purge')
 const server = express()
 server.get('/sign', sign)
+server.get('/purge*', purge)
 server.get('*', send)
 server.listen(8989)
 console.log('dev')
