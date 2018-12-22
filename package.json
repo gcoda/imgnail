@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "npm run deploy:sign && npm run deploy:send",
+    "deploy": "npm run deploy:sign && npm run deploy:send && npm run deploy:purge",
     "deploy:sign": "gcloud beta functions deploy thumb-sign --env-vars-file .env.sign.yaml --trigger-http --entry-point sign --runtime=nodejs8 --region=europe-west1",
     "deploy:send": "gcloud beta functions deploy thumb-send --env-vars-file .env.send.yaml --trigger-http --entry-point send --runtime=nodejs8 --region=europe-west1",
+    "deploy:purge": "gcloud beta functions deploy thumb-purge --env-vars-file .env.send.yaml --trigger-http --entry-point send --runtime=nodejs8 --region=europe-west1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
