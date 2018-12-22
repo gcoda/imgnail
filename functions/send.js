@@ -67,7 +67,7 @@ module.exports = async (req, res) => {
         : s3.headObject({ Bucket, Key })
 
       const obj = await s3Obj.promise().catch(s3Error => {
-        console.log('S3', { s3Error })
+        console.log('S3', { Key, s3Error })
         return s3Error.code
       })
       if (obj === 'NoSuchKey' || obj === 'NotFound') {
